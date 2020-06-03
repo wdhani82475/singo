@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+	//
 	// 从配置文件读取配置
 	conf.Init()
 
