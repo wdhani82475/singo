@@ -18,6 +18,10 @@ func Ping(c *gin.Context) {
 		Msg:  "Pong",
 	})
 }
+// 默认路由测试
+func Get(c *gin.Context) {
+	c.String(200, "Hello, GoLand")
+}
 
 // CurrentUser 获取当前用户
 func CurrentUser(c *gin.Context) *model.User {
