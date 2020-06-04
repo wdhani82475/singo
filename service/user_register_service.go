@@ -71,4 +71,5 @@ func (service *UserRegisterService) Register() serializer.Response {
 	}
 
 	return serializer.BuildUserResponse(user)
+	//return  serializer.RetResponse()
 }
