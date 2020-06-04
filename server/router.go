@@ -23,7 +23,7 @@ func NewRouter() *gin.Engine {
 		//测试一下
 		v1.GET("/", api.Get)
 		v1.POST("/ping", api.Ping)
-		// 用户登录
+		// 用户注册
 		v1.POST("user/register", api.UserRegister)
 
 		// 用户登录
