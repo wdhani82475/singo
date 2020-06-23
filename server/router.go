@@ -38,5 +38,9 @@ func NewRouter() *gin.Engine {
 			auth.DELETE("user/logout", api.UserLogout)
 		}
 	}
+	v2 := r.Group("/api/v2")
+	{
+		v2.POST("/add",api.CreateReason)
+	}
 	return r
 }
