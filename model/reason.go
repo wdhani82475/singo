@@ -8,7 +8,7 @@ import (
 type Reason struct {
 	//gorm.Model
 	CreateDate  time.Time
-	UpdatedDate time.Time
+	UpdateDate time.Time
 	Type        string
 	Status      string
 	Reason      string
