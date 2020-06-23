@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-// Reason 用户模型
+// Reason 原因模型
 type Reason struct {
 	//gorm.Model
 	CreateDate  time.Time
