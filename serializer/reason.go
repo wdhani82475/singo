@@ -6,8 +6,8 @@ import "singo/model"
 type Reason struct {
 	Type       string `json:"type"`
 	Status     string `json:"status"`
-	CreateDate int64  `json:"create_date"`
-	UpdateDate int64  `json:"update_date"`
+	//CreateDate int64  `json:"create_date"`
+	//UpdateDate int64  `json:"update_date"`
 }
 
 // BuildUser 序列化用户
