@@ -24,5 +24,5 @@ func (service *ReasonService) Create() serializer.Response {
 	if err := model.DB.Create(&reason).Error; err != nil {
 		return serializer.ParamErr("创建失败", err)
 	}
-	return serializer.RetResponse()
+	return serializer.BuildReasonResponse(reason)
 }

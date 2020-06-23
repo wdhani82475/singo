@@ -15,8 +15,8 @@ func BuildReason(res model.Reason) Reason {
 	return Reason{
 		Type:       res.Type,
 		Status:     res.Status,
-		CreateDate: res.CreateDate.Unix(),
-		UpdateDate: res.UpdateDate.Unix(),
+		//CreateDate: res.CreateDate.Unix(),
+		//UpdateDate: res.UpdateDate.Unix(),
 	}
 }
 
