@@ -41,6 +41,7 @@ func NewRouter() *gin.Engine {
 	v2 := r.Group("/api/v2")
 	{
 		v2.POST("/add",api.CreateReason)
+		v2.GET("/get",api.GetReason)
 	}
 	return r
 }

@@ -1,7 +1,9 @@
 package api
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
+	"singo/model"
 	"singo/service"
 )
 
@@ -13,4 +15,13 @@ func CreateReason(c *gin.Context) {
 	} else {
 		c.JSON(200, ErrorResponse(err))
 	}
+}
+
+func GetReason(c *gin.Context) {
+	var res model.Reason
+	if err := model.DB.Where("reason = ?","测试一下" ).First(&res).Error; err != nil {
+		fmt.Println("获取数据失败")
+	}
+	//fmt.Println(res)
+	c.JSON(200, res)
 }
