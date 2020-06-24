@@ -8,4 +8,5 @@ type Reason struct {
 	Type        string
 	Status      string
 	Reason      string
+	Id 			int
 }

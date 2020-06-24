@@ -17,7 +17,14 @@ func CreateReason(c *gin.Context) {
 	}
 }
 
-func GetReason(c *gin.Context) {
+func GetReason(c *gin.Context){
+	var service service.ReasonService
+	res :=service.Get()
+	c.JSON(200,res)
+}
+
+
+func GetReasonV1(c *gin.Context) {
 	var res model.Reason
 	if err := model.DB.Where("reason = ?","测试一下" ).First(&res).Error; err != nil {
 		fmt.Println("获取数据失败")

@@ -26,3 +26,12 @@ func (service *ReasonService) Create() serializer.Response {
 	}
 	return serializer.BuildReasonResponse(reason)
 }
+
+func (service *ReasonService) Get() serializer.Response {
+	var res model.Reason
+	if err := model.DB.Where("reason = ?","测试一下" ).First(&res).Error; err != nil {
+		return serializer.ParamErr("创建失败", err)
+	}
+	//fmt.Println(reflect.TypeOf(res))
+	return serializer.BuildReasonResponse(res)
+}
