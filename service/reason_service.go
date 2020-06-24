@@ -27,11 +27,11 @@ func (service *ReasonService) Create() serializer.Response {
 	return serializer.BuildReasonResponse(reason)
 }
 
-func (service *ReasonService) Get() serializer.Response {
+// 根据id获取详情
+func (service *ReasonService) Get(id interface{}) serializer.Response {
 	var res model.Reason
-	if err := model.DB.Where("reason = ?","测试一下" ).First(&res).Error; err != nil {
-		return serializer.ParamErr("创建失败", err)
+	if err := model.DB.Where("id = ?",id ).First(&res).Error; err != nil {
+		return serializer.ParamErr("获取数据失败", err)
 	}
-	//fmt.Println(reflect.TypeOf(res))
 	return serializer.BuildReasonResponse(res)
 }

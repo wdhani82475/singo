@@ -1,6 +1,7 @@
 package server
 
 import (
+	"fmt"
 	"os"
 	"singo/api"
 	"singo/middleware"
@@ -42,6 +43,13 @@ func NewRouter() *gin.Engine {
 	{
 		v2.POST("/add",api.CreateReason)
 		v2.GET("/get",api.GetReason)
+
+		//restful样式请求
+		v2.POST("/post/:uuid", func(c *gin.Context){
+			uuid := c.Param("uuid")
+			fmt.Println(uuid)
+			c.JSON(200,uuid)
+		})
 	}
 	return r
 }
