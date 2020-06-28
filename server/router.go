@@ -43,7 +43,8 @@ func NewRouter() *gin.Engine {
 	{
 		v2.POST("/add",api.CreateReason)
 		v2.GET("/get",api.GetReason)
-
+		v2.POST("/del",api.DelReason)
+		v2.POST("/update", api.UpdateReason)
 		//restful样式请求
 		v2.POST("/post/:uuid", func(c *gin.Context){
 			uuid := c.Param("uuid")

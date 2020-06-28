@@ -40,6 +40,20 @@ func GetReason(c *gin.Context){
 }
 
 
+func DelReason(c *gin.Context) {
+	id := c.Request.FormValue("id")
+	var service service.ReasonService
+	res := service.DelReason(id)
+	c.JSON(200,res)
+}
+func UpdateReason(c *gin.Context) {
+	reason := c.Request.FormValue("reason")
+	var service service.ReasonService
+	res := service.UpdateReason(reason)
+	c.JSON(200,res)
+}
+
+
 func GetReasonV1(c *gin.Context) {
 	var res model.Reason
 	if err := model.DB.Where("reason = ?","测试一下" ).First(&res).Error; err != nil {

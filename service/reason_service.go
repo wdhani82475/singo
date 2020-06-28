@@ -35,3 +35,23 @@ func (service *ReasonService) Get(id interface{}) serializer.Response {
 	}
 	return serializer.BuildReasonResponse(res)
 }
+
+//删除某一行记录
+func (service *ReasonService) DelReason(id interface{}) serializer.Response {
+	var res model.Reason
+	if err := model.DB.Delete(&model.Reason{},id).First(&res).Error; err != nil {
+		return serializer.ParamErr("获取数据失败", err)
+	}
+	return serializer.BuildReasonResponse(res)
+}
+
+
+//更新
+func (service * ReasonService) UpdateReason(reason interface{}) serializer.Response {
+	var res model.Reason
+
+	if err := model.DB.Where("reason =?",reason).First(&res).Update("reason","tt").Error;err != nil  {
+		return serializer.ParamErr("获取数据失败", err)
+	}
+	return serializer.BuildReasonResponse(res)
+}
