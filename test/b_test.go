@@ -1,8 +1,9 @@
 package test
 
 /**
- 1.文件名 xxx_test.go
- 2.函数名 Testxxx 开头，即可测试
+测试文件名必须以"_test.go"结尾；
+测试函数名必须以“TestXxx”开始；
+命令行下使用"go test"即可启动测试；
  */
 import (
 	"testing"
