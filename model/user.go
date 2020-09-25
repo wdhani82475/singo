@@ -15,6 +15,12 @@ type User struct {
 	Avatar         string `gorm:"size:1000"`
 }
 
+
+type MyCheck struct {
+	Name string `json:"name" form:"name" binding:"required"`
+	Passwd string `json:"passwd" form:"passwd" binding:"required"`
+}
+
 const (
 	// PassWordCost 密码加密难度
 	PassWordCost = 12

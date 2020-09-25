@@ -1,12 +1,27 @@
 package api
 
 import (
+	"singo/model"
 	"singo/serializer"
 	"singo/service"
 
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
+
+// bind参数校验
+func Check(c *gin.Context) {
+
+	var checkInfo model.MyCheck
+
+	var err error
+	//直接进行参数绑定
+	err = c.ShouldBind(&checkInfo)
+	if err != nil {
+		c.JSON(200,ErrorResponse(err))
+	}
+	c.JSON(200,checkInfo)
+}
 
 // UserRegister 用户注册接口
 func UserRegister(c *gin.Context) {
