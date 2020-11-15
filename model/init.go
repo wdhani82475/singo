@@ -31,5 +31,6 @@ func Database(connString string) {
 
 	DB = db
 
+	//Todo 数据表迁移
 	migration()
 }

@@ -1,4 +1,4 @@
-package api
+package controller
 
 import (
 	"fmt"
@@ -17,6 +17,7 @@ func CreateReason(c *gin.Context) {
 	}
 }
 //根据id获取详情
+
 func GetReason(c *gin.Context){
 	//获取参数的方式
 	////get
@@ -37,6 +38,7 @@ func GetReason(c *gin.Context){
 	var service service.ReasonService
 	res :=service.Get(id)
 	c.JSON(200,res)
+
 }
 
 

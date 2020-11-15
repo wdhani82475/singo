@@ -11,6 +11,6 @@ func main() {
 	conf.Init()
 
 	// 装载路由
-	r := server.NewRouter()
+	r := route.NewRouter()
 	r.Run(":3000")
 }
