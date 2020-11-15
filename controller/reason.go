@@ -21,6 +21,7 @@ func CreateReason(c *gin.Context) {
 func GetReason(c *gin.Context){
 	//获取参数的方式
 	////get
+	fmt.Println(111)
 	id1 := c.Query("id") //查询请求URL后面的参数
 	id2 := c.DefaultQuery("id", "100") //查询URL后面的参数，如果没有填写默认值
 	id3 := c.PostForm("id") //从表单中查询参数

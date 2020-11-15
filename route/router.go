@@ -3,7 +3,6 @@ package route
 import (
 	"fmt"
 	"os"
-	"singo/api"
 	"singo/controller"
 	"singo/middleware"
 
@@ -56,9 +55,8 @@ func NewRouter() *gin.Engine {
 	}
 	v3 := r.Group("/api/v3")
 	{
-		v3.POST("/add/orderv2", controller.AddOrder)
-		v3.POST("/add/order", controller.AddOrderV1)
-		v3.POST("/create/goods", controller.AddGoods)
+		v3.POST("/add/order", controller.AddOrder)
+		v3.POST("/create/goods", controller.Handle(controller.AddGoods))
 	}
 	return r
 }

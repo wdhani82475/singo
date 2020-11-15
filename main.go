@@ -2,7 +2,7 @@ package main
 
 import (
 	"singo/conf"
-	"singo/server"
+	"singo/route"
 )
 
 func main() {
