@@ -1,9 +1,7 @@
 package service
 
 import (
-	"context"
 	"fmt"
-	"github.com/go-redis/redis"
 	"singo/model"
 	"singo/serializer"
 )
@@ -16,15 +14,6 @@ type OrderServer struct {
 
 func (service *OrderServer) CreateAndUpdateStock() serializer.Response {
 	//下订单
-	client:=redis.NewClient(&redis.Options{
-		Addr:"localhost:6379",
-		Password:"",
-		DB:0,
-	})
-
-	pong,err:=client.Ping().Result()
-
-
 
 	tx := model.DB.Begin()
 	//如何开启一个事务
