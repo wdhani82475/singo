@@ -6,6 +6,6 @@ type UserModel struct {
 	Status   int
 }
 
-func (UserModel) tableName() string {
+func (UserModel) TableName() string {
 	return "like_user"
 }

@@ -8,6 +8,6 @@ type ArticleModel struct {
 	TotalLikeCount int
 }
 
-func (ArticleModel) tableName() string {
+func (ArticleModel) TableName() string {
 	return "article"
 }

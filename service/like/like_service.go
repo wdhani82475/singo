@@ -50,11 +50,19 @@ func (service *LikeService) DoLikeArticle() *serializer.Response {
 			Msg:  "插入失败",
 		}
 	}
-
-	//3.被点赞、点赞用户、文章+1
-	//err = db.Model(&Toy{}).Where(&Toy{OwnerType: "Martian"}).Update("OwnerType", "Astronaut").Error
-	model.DB.Model(&like.ArticleModel{}).Where("id = ?",service.ArticleId).Update("total_like_count")
-	//更新逻辑
+	//更新数据
+	var article like.ArticleModel
+	err4 := model.DB.Where("id = ?", service.ArticleId).First(&article).Update("total_like_count", article.TotalLikeCount+1).Error
+	if err4 != nil {
+		return &serializer.Response{
+			Code: 400,
+			Msg:  "更新数据失败",
+		}
+	}
+	return  &serializer.Response{
+		Code: 200,
+		Msg:  "操作成功",
+	}
 }
 
 
