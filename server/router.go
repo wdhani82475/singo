@@ -3,6 +3,7 @@ package server
 import (
 	"os"
 	"singo/api"
+	"singo/api/like"
 	"singo/middleware"
 
 	"github.com/gin-gonic/gin"
@@ -37,5 +38,13 @@ func NewRouter() *gin.Engine {
 			auth.DELETE("user/logout", api.UserLogout)
 		}
 	}
+	v2 := r.Group("/api/v2/")
+	{
+		//测试
+		v2.GET("ping",api.Ping)
+		v2.POST("do-like",like.LikeArticle)
+		v2.POST("do-dislike",like.DisLikeArticle)
+	}
 	return r
 }
+

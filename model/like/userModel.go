@@ -1,18 +1,11 @@
 package like
 
-import (
-	"github.com/jinzhu/gorm"
-)
-
-type User struct {
-	gorm.Model
-	UserName       string
-	PasswordDigest string
-	Nickname       string
-	Status         string
-	Avatar         string `gorm:"size:1000"`
+type UserModel struct {
+	Id       int
+	UserName string
+	Status   int
 }
 
-func (b *User) tableName() string{
+func (UserModel) tableName() string {
 	return "like_user"
 }
