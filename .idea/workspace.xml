@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8a6bc68d-bfc6-4caa-a484-69f28369661d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1hJTHH1e4bxvLA6ccwpwTdaZhsi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+  </component>
+  <component name="RunManager" selected="Go Build.go build singo ">
+    <configuration name="go build singo " type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+      <module name="singo" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="singo" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build singo" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="singo" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="singo" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build singo " />
+        <item itemvalue="Go Build.go build singo" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="520" y="362" key="#GOROOT" timestamp="1599728150981">
+      <screen x="0" y="23" width="1440" height="804" />
+    </state>
+    <state x="520" y="362" key="#GOROOT/0.23.1440.804@0.23.1440.804" timestamp="1599728150981" />
+    <state x="417" y="72" key="#go_build_singo" timestamp="1599728268159">
+      <screen x="0" y="23" width="1440" height="804" />
+    </state>
+    <state x="417" y="72" key="#go_build_singo/0.23.1440.804@0.23.1440.804" timestamp="1599728268159" />
+    <state x="417" y="147" key="#go_build_singo_(1)" timestamp="1599728474629">
+      <screen x="0" y="23" width="1440" height="804" />
+    </state>
+    <state x="417" y="147" key="#go_build_singo_(1)/0.23.1440.804@0.23.1440.804" timestamp="1599728474629" />
+    <state width="1398" height="200" key="GridCell.Tab.0.bottom" timestamp="1599740389035">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state width="1398" height="251" key="GridCell.Tab.0.bottom/0.23.1440.804@0.23.1440.804" timestamp="1599735035406" />
+    <state width="1398" height="200" key="GridCell.Tab.0.bottom/0.23.1440.806@0.23.1440.806" timestamp="1599740389035" />
+    <state width="1398" height="200" key="GridCell.Tab.0.center" timestamp="1599740389035">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state width="1398" height="251" key="GridCell.Tab.0.center/0.23.1440.804@0.23.1440.804" timestamp="1599735035406" />
+    <state width="1398" height="200" key="GridCell.Tab.0.center/0.23.1440.806@0.23.1440.806" timestamp="1599740389035" />
+    <state width="1398" height="200" key="GridCell.Tab.0.left" timestamp="1599740389034">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state width="1398" height="251" key="GridCell.Tab.0.left/0.23.1440.804@0.23.1440.804" timestamp="1599735035405" />
+    <state width="1398" height="200" key="GridCell.Tab.0.left/0.23.1440.806@0.23.1440.806" timestamp="1599740389034" />
+    <state width="1398" height="200" key="GridCell.Tab.0.right" timestamp="1599740389035">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state width="1398" height="251" key="GridCell.Tab.0.right/0.23.1440.804@0.23.1440.804" timestamp="1599735035406" />
+    <state width="1398" height="200" key="GridCell.Tab.0.right/0.23.1440.806@0.23.1440.806" timestamp="1599740389035" />
+  </component>
+</project>
