@@ -16,7 +16,8 @@ import (
 func LikeArticle(c *gin.Context) {
 	//参数校验
 	var service like.LikeService
-	if err := c.ShouldBind(&service);err != nil {
+
+	if err := c.ShouldBind(&service);err == nil {
 		res := service.DoLikeArticle()
 		c.JSON(200,res)
 	}else{

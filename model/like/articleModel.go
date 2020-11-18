@@ -6,7 +6,6 @@ type ArticleModel struct {
 	ArticleName    string
 	ArticleContent string
 	TotalLikeCount int
-	Status         int
 }
 
 func (ArticleModel) tableName() string {
