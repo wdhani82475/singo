@@ -69,7 +69,7 @@ func (service *LikeService) DoLikeArticle() *serializer.Response {
 		}
 	} else {
 		//&Toy{Name: "Stuffed Animal", OwnerType: "Nobody"} 1.定义对象 2.直接构造对象
-		if err2 := tx.Model(&like.UserLikeArticleModel{}).Create(&userlike).Error; err2 != nil {
+		if err2 := tx.Model(&like.UserLikeArticleModel{}).Create(&userLikeArticle).Error; err2 != nil {
 			tx.Rollback()
 			return &serializer.Response{
 				Code: 400,
