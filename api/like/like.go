@@ -14,17 +14,9 @@ func LikeArticle(c *gin.Context) {
 
 	if err := c.ShouldBind(&service);err == nil {
 		data := service.DoLikeArticle()
-		c.JSON(200,gin.H{
-			"code":200,
-			"msg":"ok",
-			"data":data,
-		})
+		c.JSON(200,data)
 	}else{
-		c.JSON(200, gin.H{
-			"code":200,
-			"msg":"ok",
-			"data":err,
-		})
+		c.JSON(400,err)
 	}
 }
 
