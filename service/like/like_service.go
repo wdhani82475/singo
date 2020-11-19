@@ -14,9 +14,10 @@ type LikeService struct {
 }
 
 //1.检测用户是否已经点赞过该文章
+//model.DB.Model(&like.UserLikeArticleModel{}).First(&userlike).Where("post_user_id = ? and like_user_id = ? and article_id = ?", service.PostUser, service.LikeUser, service.ArticleId).Count(&count)
 func (service *LikeService) valid() *serializer.Response {
 	count := 0
-	model.DB.Model(&like.UserLikeArticleModel{}).Where("post_user_id = ? and like_user_id = ? and article_id = ?  ", service.PostUser, service.LikeUser, service.ArticleId).Count(&count)
+	model.DB.Model(&like.UserLikeArticleModel{}).Where("post_user_id = ? and like_user_id = ? and article_id = ? and is_like = ? ", service.PostUser, service.LikeUser, service.ArticleId,like.DO_LIKE).Count(&count)
 	fmt.Println(count)
 	if count > 0 {
 		return &serializer.Response{
@@ -39,8 +40,15 @@ func (service *LikeService) DoLikeArticle() *serializer.Response {
 		PostUserId: service.PostUser,
 		LikeUserId: service.LikeUser,
 		ArticleId:  service.ArticleId,
+		IsLike: like.DO_LIKE,
 	}
+	//TODO
 	//用户点赞关联表+1
+
+	//能查找到则更新状态
+
+	//找不到则插入
+
 	if err2 := model.DB.Model(&like.UserLikeArticleModel{}).Create(&userLikeArticle).Error;err2 != nil {
 		return &serializer.Response{
 			Code: 400,
@@ -62,3 +70,8 @@ func (service *LikeService) DoLikeArticle() *serializer.Response {
 	}
 }
 //使用协程同步数据库
+
+
+func (service *LikeService)  DisLikeArticle() {
+
+}

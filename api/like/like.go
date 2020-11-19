@@ -22,5 +22,11 @@ func LikeArticle(c *gin.Context) {
 
 //取消点赞
 func  DisLikeArticle(c*gin.Context)  {
-
+	var service like.LikeService
+	if err := c.ShouldBind(&service);err != nil {
+		//data := service.DisLikeArticle()
+		c.JSON(200,1)
+	}else{
+		c.JSON(400,err)
+	}
 }
