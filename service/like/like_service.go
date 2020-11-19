@@ -41,15 +41,17 @@ func (service *LikeService) DoLikeArticle() *serializer.Response {
 		ArticleId:  service.ArticleId,
 		IsLike:     like.DO_LIKE,
 	}
+	//开启事务
+	tx := model.DB.Begin()
 
 	//var res model.Reason
 	// model.DB.Model(&like.UserLikeArticleModel{})
 	//if err := model.DB.Where("id = ?",id ).First(&res).Error; err != nil {}
-	//TODO
 	//用户点赞关联表+1
 	//能查找到则更新状态
 	var userlike like.UserLikeArticleModel
-	if err := model.DB.Where("post_user_id = ? and like_user_id = ? and article_id = ?", service.PostUser, service.LikeUser, service.ArticleId).First(&userlike).Error; err != nil {
+	if err := tx.Where("post_user_id = ? and like_user_id = ? and article_id = ?", service.PostUser, service.LikeUser, service.ArticleId).First(&userlike).Error; err != nil {
+		tx.Rollback()
 		return &serializer.Response{
 			Code: 400,
 			Msg:  "查询数据失败",
@@ -58,14 +60,17 @@ func (service *LikeService) DoLikeArticle() *serializer.Response {
 	//fmt.Printf("userLike:%#v\n",userlike)
 	//找不到则插入
 	if &userlike != nil {
-		if err := model.DB.Where("post_user_id = ? and like_user_id = ? and article_id = ?", service.PostUser, service.LikeUser, service.ArticleId).First(&userlike).Update("is_like", like.DO_LIKE).Error; err != nil {
+		if err := tx.Where("post_user_id = ? and like_user_id = ? and article_id = ?", service.PostUser, service.LikeUser, service.ArticleId).First(&userlike).Update("is_like", like.DO_LIKE).Error; err != nil {
+			tx.Rollback()
 			return &serializer.Response{
 				Code: 400,
 				Msg:  "用户点赞失败1",
 			}
 		}
 	} else {
-		if err2 := model.DB.Model(&like.UserLikeArticleModel{}).Create(&userLikeArticle).Error; err2 != nil {
+		//&Toy{Name: "Stuffed Animal", OwnerType: "Nobody"} 1.定义对象 2.直接构造对象
+		if err2 := tx.Model(&like.UserLikeArticleModel{}).Create(&userlike).Error; err2 != nil {
+			tx.Rollback()
 			return &serializer.Response{
 				Code: 400,
 				Msg:  "用户点赞失败2",
@@ -74,12 +79,14 @@ func (service *LikeService) DoLikeArticle() *serializer.Response {
 	}
 	//更新数据
 	var article like.ArticleModel
-	if err4 := model.DB.Where("id = ?", service.ArticleId).First(&article).Update("total_like_count", article.TotalLikeCount+1).Error; err4 != nil {
+	if err4 := tx.Where("id = ?", service.ArticleId).First(&article).Update("total_like_count", article.TotalLikeCount+1).Error; err4 != nil {
+		tx.Rollback()
 		return &serializer.Response{
 			Code: 400,
 			Msg:  "更新数据失败",
 		}
 	}
+	tx.Commit()
 	return &serializer.Response{
 		Code: 200,
 		Msg:  "操作成功",
