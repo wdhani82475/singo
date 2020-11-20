@@ -3,6 +3,7 @@ package conf
 import (
 	"os"
 	"singo/cache"
+	"singo/job"
 	"singo/model"
 	"singo/util"
 
@@ -26,6 +27,7 @@ func Init() {
 	}
 
 	// 连接数据库
-	model.Database(os.Getenv("MYSQL_DSN"))
-	cache.Redis()
+	model.Database(os.Getenv("MYSQL_DSN")) //加载MySQL配置  使用  model.DB.Where()
+	cache.Redis() //加载redis对象 cache.RedisClient.Incr()
+	job.GetCron() //加载定时任务对象  job.Crontab.AddFunc()
 }

@@ -42,8 +42,12 @@ func NewRouter() *gin.Engine {
 	{
 		//测试
 		v2.GET("ping",api.Ping)
-		v2.POST("do-like",like.LikeArticle)
-		v2.POST("do-dislike",like.DisLikeArticle)
+		v2.GET("crontab",like.Sync)  //定时执行
+		v2.POST("do-like",like.LikeArticle)  //点赞
+		v2.POST("do-dislike",like.DisLikeArticle)  //取消点赞
+		//v2.GET("user-like-article",like.UserLikeArticleList)  //用户点赞文章列表
+		//v2.GET("article-like-count",like.ArticleLikeCount)  //文章点赞总数
+		//v2.GET("article-like-user",like.ArticleLikeUserList) //点赞文章的用户列表
 	}
 	return r
 }

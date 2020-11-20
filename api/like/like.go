@@ -28,3 +28,10 @@ func DisLikeArticle(c *gin.Context) {
 		c.JSON(400, err)
 	}
 }
+
+func Sync(c *gin.Context) {
+	//参数校验
+	var service like.LikeService
+	service.Sync()
+	c.JSON(200,"")
+}
