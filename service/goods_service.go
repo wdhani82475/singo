@@ -1,6 +1,7 @@
 package service
 
 import (
+	"github.com/go-redis/redis"
 	"singo/model"
 	"singo/serializer"
 )
@@ -26,3 +27,24 @@ func (service *GoodsService) Create() serializer.Response {
 	return serializer.Response{}
 }
 
+func (service *GoodsService) OpRedis() *serializer.Response  {
+	client := redis.NewClient(&redis.Options{
+		Addr: "127.0.0.1:6379",
+		Password: "",
+		DB: 0,
+	})
+
+	if err := client.Do("Set", "qqq", 100);err != nil {
+		return &serializer.Response{
+			Code: 400,
+			Msg: "写入数据失败",
+		}
+	}
+	 data := client.Do("Get", "qqq")
+
+
+	return &serializer.Response{
+		Code: 200,
+		Data: data,
+	}
+}
